@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Patients Journal</string>
+    <string name="journal_label">Дневник тестовой симуляции</string>
+    <string name="question1">1. Какая программа была сегодня самой эффективной?</string>
+    <string name="question1_program">Программа №</string>
 </resources>

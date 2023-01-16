@@ -8,11 +8,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Транзакция начального фрагмента в activity_main.xml
+        //скрытие шапки приложения
+        supportActionBar?.hide()
 
-        //Проверка на наличие фрашмента в контейнере
+        //Проверка на наличие фрагмента в контейнере
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
 
+        //Транзакция начального фрагмента в activity_main.xml
         if(currentFragment == null){
             val fragment = MyJournalFragment.newInstance()
             supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit()
