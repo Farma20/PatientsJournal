@@ -2,6 +2,7 @@ package com.bignerdranch.android.patientsjournal
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,6 +11,9 @@ class MainActivity : AppCompatActivity() {
 
         //скрытие шапки приложения
         supportActionBar?.hide()
+
+        //отключение темной темы
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         //Проверка на наличие фрагмента в контейнере
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
