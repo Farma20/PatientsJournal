@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -48,7 +49,7 @@
                 android:layout_height="22dp"
                 android:layout_marginStart="5dp"
                 android:background="@color/black"
-                android:text="Выберите"
+                android:text="@string/select_button"
                 android:gravity="center"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -60,10 +61,46 @@
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:text="@string/question2"/>
-        <SeekBar
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <SeekBar
+                android:id="@+id/painSeekBar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="300dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:max="20"
+                android:progress="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/painPercentsBar"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@color/black"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="0%"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/painSeekBar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     </LinearLayout>
 </ScrollView>
