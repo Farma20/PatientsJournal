@@ -19,8 +19,16 @@ class MyJournalViewModel: ViewModel() {
     fun setPainLevel(percents: Int){
         patientsAnswer.painBar = percents
     }
-    fun  getPainLevel(): Int{
+    fun getPainLevel(): Int{
         return patientsAnswer.painBar
+    }
+
+    //Гетеры и сетеры для комментария к уровню боли
+    fun setPainComment(comment: String){
+        patientsAnswer.painComment = comment
+    }
+    fun getPainComment():String{
+        return patientsAnswer.painComment
     }
 
 }

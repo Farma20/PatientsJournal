@@ -7,4 +7,6 @@
     <string name="select_button">Выберите</string>
     <string name="scale">0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%</string>
     <string name="scale2">0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%</string>
+    <string name="question3">3. Отметьте уровни боли при определенных видах деятельности из списка. (по шкале от 0 до 10, где 10 – самая сильная боль).</string>
+    <string name="comment_placeholder">Ваш комментарий</string>
 </resources>
