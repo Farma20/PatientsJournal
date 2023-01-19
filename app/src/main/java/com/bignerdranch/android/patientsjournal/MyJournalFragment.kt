@@ -15,10 +15,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
 const val PROGRAM_SELECTION_TAG = "programSelection"
+const val LEVEL_PAIN_TAG = "level_pain_tag"
 const val REQUEST_PROGRAM = 0
+val criteriaStr = listOf<String>("siting", "staying", "walking", "sleeping")
 
 
-class MyJournalFragment: Fragment(), ProgramSelectionDialogFragment.Callbacks {
+class MyJournalFragment:
+    Fragment(),
+    ProgramSelectionDialogFragment.Callbacks,
+    LevelPainSelectorDialogFragment.Callbacks{
 
     private lateinit var programSelectionButton: TextView
     private lateinit var percentBarTextView: TextView
@@ -38,6 +43,13 @@ class MyJournalFragment: Fragment(), ProgramSelectionDialogFragment.Callbacks {
     override fun onProgramSelected(idButton: Int) {
         myJournalViewModel.patientsAnswer.program = idButton
         updateUI()
+    }
+
+    //определение интерфейса обратного вызова из LevelPainSelectionDialogFragment
+    override fun onPainSelected(criteria: Int, id: Int) {
+        myJournalViewModel.setPainLevelDict(criteriaStr[criteria], id)
+        updateUI()
+        println("$criteria, $id")
     }
 
 
@@ -105,33 +117,49 @@ class MyJournalFragment: Fragment(), ProgramSelectionDialogFragment.Callbacks {
 
         })
 
-        //Слушатели на кнопки третьего вопроса
         val question3Buttons = listOf<TextView>(
             sitingPainSelectionButton,
             stayingPainSelectionButton,
             walkingPainSelectionButton,
             sleepingPainSelectionButton
         )
-
-        for (elem in question3Buttons){
-            elem.setOnClickListener{
+        //Слушатели на кнопки третьего вопроса
+        for (i in question3Buttons.indices){
+            question3Buttons[i].setOnClickListener{
                 //открытие фрагмента диалогового окна при нажатии
-                ProgramSelectionDialogFragment.newInstance(myJournalViewModel.patientsAnswer.program)
-                    .apply {
-                        setTargetFragment(this@MyJournalFragment, REQUEST_PROGRAM)
+                val criteria: Int? = myJournalViewModel.getPainLevelDict(criteriaStr[i])
+                if (criteria != null) {
+                    LevelPainSelectorDialogFragment.newInstance(i, criteria)
+                        .apply {
+                            setTargetFragment(this@MyJournalFragment, REQUEST_PROGRAM)
 
-                        show(this@MyJournalFragment.requireFragmentManager(), PROGRAM_SELECTION_TAG)
-                    }
+                            show(this@MyJournalFragment.requireFragmentManager(), LEVEL_PAIN_TAG)
+                        }
+                }
             }
         }
     }
 
+
     @SuppressLint("SetTextI18n")
     private fun updateUI(){
-        var programAnswer = myJournalViewModel.patientsAnswer.program
+
+        //Обновление представления первого вопроса
+        var programAnswer = myJournalViewModel.getProgramMode()
         if(programAnswer != -1){
             programAnswer++
             programSelectionButton.text = programAnswer.toString()
+        }
+
+        //Обновление представления третьего вопроса
+        val question3Buttons = listOf<TextView>(
+            sitingPainSelectionButton,
+            stayingPainSelectionButton,
+            walkingPainSelectionButton,
+            sleepingPainSelectionButton
+        )
+        for(i in question3Buttons.indices){
+            question3Buttons[i].text = myJournalViewModel.getPainLevelDict(criteriaStr[i]).toString()
         }
 
     }

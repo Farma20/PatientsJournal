@@ -1,5 +1,6 @@
 package com.bignerdranch.android.patientsjournal
 
+import android.location.Criteria
 import androidx.lifecycle.ViewModel
 
 class MyJournalViewModel: ViewModel() {
@@ -29,6 +30,14 @@ class MyJournalViewModel: ViewModel() {
     }
     fun getPainComment():String{
         return patientsAnswer.painComment
+    }
+
+    //Гетеры и сетеры для уровней боли во время определенных действий
+    fun setPainLevelDict(criteria: String, level: Int){
+        patientsAnswer.painLevelDict[criteria] = level
+    }
+    fun getPainLevelDict(criteria: String): Int? {
+        return patientsAnswer.painLevelDict[criteria]
     }
 
 }
