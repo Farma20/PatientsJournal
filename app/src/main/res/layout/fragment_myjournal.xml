@@ -277,5 +277,113 @@
             android:layout_marginTop="10dp"
             android:imeOptions="actionDone"
             android:hint="@string/comment_placeholder"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:text="5. Оцените Ощущения от стимуляции."/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <RadioButton
+                android:id="@+id/question5_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Приятные"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/question5_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Некомфортные"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/question5_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Болезненные"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/question5_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Комфортные"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:text="@string/question_6"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/question6_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Превосходно"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/question6_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Хорошо"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/question6_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Удовлетворительно"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/question6_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Неэффективно"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:text="@string/question_7"/>
+
+        <EditText
+            android:id="@+id/question7_comment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:imeOptions="actionDone"
+            android:hint="@string/comment_placeholder"/>
     </LinearLayout>
 </ScrollView>

@@ -1,5 +1,7 @@
 package com.bignerdranch.android.patientsjournal
 
+import android.widget.EditText
+
 data class PatientsAnswer(
     var program: Int = -1,
     var painBar:Int = 0,
@@ -16,5 +18,8 @@ data class PatientsAnswer(
         "staying" to false,
         "doing" to false
     ),
-    var assessmentConditionComment: String = ""
-    )
+    var assessmentConditionComment: String = "",
+    var questionFiveRadio: Int = -1,
+    var questionSixRadio: Int = -1,
+    var questionSevenEditText: String = ""
+)
