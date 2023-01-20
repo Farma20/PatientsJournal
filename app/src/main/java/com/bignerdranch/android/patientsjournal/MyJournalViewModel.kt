@@ -40,4 +40,29 @@ class MyJournalViewModel: ViewModel() {
         return patientsAnswer.painLevelDict[criteria]
     }
 
+    //Гетеры и сетеры для комментария2 к уровню боли
+    fun setPainComment2(comment: String){
+        patientsAnswer.painLevelComment = comment
+    }
+    fun getPainComment2():String{
+        return patientsAnswer.painLevelComment
+    }
+
+    //Гетеры и сетеры для изменения оценки состояния
+    fun  setAssessmentConditionDict(criteria: String){
+        patientsAnswer.assessmentConditionDict[criteria] =
+            !patientsAnswer.assessmentConditionDict[criteria]!!
+    }
+    fun getAssessmentConditionDict(criteria: String): Boolean? {
+        return patientsAnswer.assessmentConditionDict[criteria]
+    }
+
+    //Гетеры и сетеры для комментария3 к оценке состояния
+    fun setPainComment3(comment: String){
+        patientsAnswer.assessmentConditionComment = comment
+    }
+    fun getPainComment3():String{
+        return patientsAnswer.assessmentConditionComment
+    }
+
 }

@@ -9,5 +9,12 @@ data class PatientsAnswer(
         "staying" to 0,
         "walking" to 0,
         "sleeping" to 0
-        )
+        ),
+    var painLevelComment: String = "",
+    var assessmentConditionDict: MutableMap<String, Boolean> = mutableMapOf(
+        "siting" to false,
+        "staying" to false,
+        "doing" to false
+    ),
+    var assessmentConditionComment: String = ""
     )

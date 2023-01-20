@@ -116,11 +116,12 @@
             android:text="@string/question3"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="57dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -234,7 +235,47 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <EditText
+            android:id="@+id/pain_comments_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:imeOptions="actionDone"
+            android:hint="@string/comment_placeholder"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:text="@string/question_3"/>
 
+        <CheckBox
+            android:id="@+id/assessmentConditionCheckBox1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Смогли ли Вы дольше сидеть?" />
+
+        <CheckBox
+            android:id="@+id/assessmentConditionCheckBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Смогли ли Вы дольше идти или стоять?" />
+
+        <CheckBox
+            android:id="@+id/assessmentConditionCheckBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Было улучшение при рутинных видах деятельности (например при готовке еды, во время работы или уборки по дому)?  " />
+
+        <EditText
+            android:id="@+id/assessmentConditionComment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:imeOptions="actionDone"
+            android:hint="@string/comment_placeholder"/>
     </LinearLayout>
 </ScrollView>
