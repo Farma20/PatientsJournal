@@ -286,6 +286,7 @@
             android:text="5. Оцените Ощущения от стимуляции."/>
 
         <RadioGroup
+            android:id="@+id/radio_group_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             >
@@ -333,6 +334,7 @@
             android:text="@string/question_6"/>
 
         <RadioGroup
+            android:id="@+id/radio_group_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -385,5 +387,12 @@
             android:layout_marginTop="10dp"
             android:imeOptions="actionDone"
             android:hint="@string/comment_placeholder"/>
+
+        <Button
+            android:id="@+id/buttonNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Далее" />
     </LinearLayout>
 </ScrollView>

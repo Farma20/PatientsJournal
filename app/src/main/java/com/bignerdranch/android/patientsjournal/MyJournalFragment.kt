@@ -8,10 +8,14 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
@@ -41,6 +45,10 @@ class MyJournalFragment:
     private lateinit var assessmentCondition2CheckBox: CheckBox
     private lateinit var assessmentCondition3CheckBox: CheckBox
     private lateinit var assessmentConditionEditText: EditText
+    private lateinit var radio1Group: RadioGroup
+    private lateinit var radio2Group: RadioGroup
+    private lateinit var comment7EditText: EditText
+    private lateinit var nextButton: Button
 
     //Ленивая инициализация ViewModel
     private val myJournalViewModel: MyJournalViewModel by lazy {
@@ -83,6 +91,10 @@ class MyJournalFragment:
         assessmentCondition2CheckBox = view.findViewById(R.id.assessmentConditionCheckBox2) as CheckBox
         assessmentCondition3CheckBox = view.findViewById(R.id.assessmentConditionCheckBox3) as CheckBox
         assessmentConditionEditText = view.findViewById(R.id.assessmentConditionComment) as EditText
+        radio1Group = view.findViewById(R.id.radio_group_1) as RadioGroup
+        radio2Group = view.findViewById(R.id.radio_group_2) as RadioGroup
+        comment7EditText = view.findViewById(R.id.question7_comment) as EditText
+        nextButton = view.findViewById(R.id.buttonNext) as Button
 
         return view
     }
@@ -148,6 +160,15 @@ class MyJournalFragment:
 
             override fun afterTextChanged(p0: Editable?) {  }
         })
+        comment7EditText.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {  }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                myJournalViewModel.setQuestion7Comment(p0.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {  }
+        })
 
         val question3Buttons = listOf<TextView>(
             sitingPainSelectionButton,
@@ -183,8 +204,52 @@ class MyJournalFragment:
                println(myJournalViewModel.getAssessmentConditionDict(criteriaAssessmentStr[i]))
            }
         }
+
+        //Слушатели на radioGroup
+        radio1Group.setOnCheckedChangeListener{_, checkedId ->
+            view?.findViewById<RadioButton>(checkedId).apply {
+                this?.let { myJournalViewModel.setRadioGroup1(it.text as String) }
+            }
+        }
+        radio2Group.setOnCheckedChangeListener{_, checkedId ->
+            view?.findViewById<RadioButton>(checkedId).apply {
+                this?.let { myJournalViewModel.setRadioGroup2(it.text as String) }
+            }
+        }
+
+        //Слушатель на nextButton
+        nextButton.setOnClickListener{
+            Toast.makeText(
+                context,
+                getData(),
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 
+    //Функция сбора данных из бд
+    private fun getData(): String {
+        return "1) Эффективная программа: ${myJournalViewModel.getProgramMode()}\n" +
+                "2) Процентное снижение боли: ${myJournalViewModel.getPainLevel()}\n"+
+                "3) Комментарий 1: ${myJournalViewModel.getPainComment()}\n" +
+                "4) Уровни боли: \n" +
+                "\tСидя: ${myJournalViewModel.getPainLevelDict(criteriaStr[0])}\n"+
+                "\tСтоя: ${myJournalViewModel.getPainLevelDict(criteriaStr[1])}\n"+
+                "\tПри ходьбе: ${myJournalViewModel.getPainLevelDict(criteriaStr[2])}\n"+
+                "\tВо время сна: ${myJournalViewModel.getPainLevelDict(criteriaStr[3])}\n" +
+                "5) Комментарий 2: ${myJournalViewModel.getPainComment2()}\n" +
+                "6) Оценка состояния:\n" +
+                "\t Дольше сидеть: ${myJournalViewModel.getAssessmentConditionDict(
+                    criteriaAssessmentStr[0])}\n" +
+                "\t Дольше идти/стоять: ${myJournalViewModel.getAssessmentConditionDict(
+                    criteriaAssessmentStr[1])}\n" +
+                "\t Улучшения: ${myJournalViewModel.getAssessmentConditionDict(
+                    criteriaAssessmentStr[2])}\n" +
+                "7) Комментарий 3: ${myJournalViewModel.getPainComment3()}\n" +
+                "8) Ощущения от стимуляции: ${myJournalViewModel.getRadioGroup1()}\n" +
+                "9) Эффективность программы: ${myJournalViewModel.getRadioGroup2()}\n" +
+                "10) Коментарий 4: ${myJournalViewModel.getQuestion7Comment()}"
+    }
 
     @SuppressLint("SetTextI18n")
     private fun updateUI(){

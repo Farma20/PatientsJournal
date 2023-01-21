@@ -19,7 +19,7 @@ data class PatientsAnswer(
         "doing" to false
     ),
     var assessmentConditionComment: String = "",
-    var questionFiveRadio: Int = -1,
-    var questionSixRadio: Int = -1,
+    var questionFiveRadio: String = "",
+    var questionSixRadio: String = "",
     var questionSevenEditText: String = ""
 )

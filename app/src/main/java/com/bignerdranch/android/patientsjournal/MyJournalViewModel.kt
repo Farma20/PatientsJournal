@@ -65,4 +65,28 @@ class MyJournalViewModel: ViewModel() {
         return patientsAnswer.assessmentConditionComment
     }
 
+    //Геттеры и сеттеры для radioGroup1
+    fun setRadioGroup1(text: String){
+        patientsAnswer.questionFiveRadio = text
+    }
+    fun getRadioGroup1(): String{
+        return patientsAnswer.questionFiveRadio
+    }
+
+    //Геттеры и сеттеры для radioGroup2
+    fun setRadioGroup2(text: String){
+        patientsAnswer.questionSixRadio = text
+    }
+    fun getRadioGroup2(): String{
+        return patientsAnswer.questionSixRadio
+    }
+
+    //Геттеры и сеттеры для коментария к вопросу 7
+    fun setQuestion7Comment(comment: String){
+        patientsAnswer.questionSevenEditText = comment
+    }
+    fun getQuestion7Comment():String{
+        return patientsAnswer.questionSevenEditText
+    }
+
 }
