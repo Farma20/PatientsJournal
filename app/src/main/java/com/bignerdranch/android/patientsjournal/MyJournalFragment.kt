@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.SeekBar
@@ -49,6 +50,8 @@ class MyJournalFragment:
     private lateinit var radio2Group: RadioGroup
     private lateinit var comment7EditText: EditText
     private lateinit var nextButton: Button
+
+    private lateinit var hostActivity: MainActivity
 
     //Ленивая инициализация ViewModel
     private val myJournalViewModel: MyJournalViewModel by lazy {
@@ -219,11 +222,7 @@ class MyJournalFragment:
 
         //Слушатель на nextButton
         nextButton.setOnClickListener{
-            Toast.makeText(
-                context,
-                getData(),
-                Toast.LENGTH_LONG
-            ).show()
+            hostActivity.onFragmentSelected(BodyEditorFrontFragment.newInstance())
         }
     }
 
@@ -277,6 +276,7 @@ class MyJournalFragment:
     //Отлавливание перехода из MainActivity
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        hostActivity = context as MainActivity
     }
 
     //Вызов фрагмента извне
