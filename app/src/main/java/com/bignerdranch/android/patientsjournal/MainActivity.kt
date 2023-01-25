@@ -10,6 +10,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //проверка работы графического редактора
+//        val draw = DrawClass(this)
+//        setContentView(draw)
+
         //скрытие шапки приложения
         supportActionBar?.hide()
 
