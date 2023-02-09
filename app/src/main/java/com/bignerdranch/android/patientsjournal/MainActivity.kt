@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         //Транзакция начального фрагмента в activity_main.xml
         if(currentFragment == null){
-            val fragment = MyJournalFragment.newInstance()
+            val fragment = MenuPatientsFragment.newInstance()
             supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit()
         }
     }
