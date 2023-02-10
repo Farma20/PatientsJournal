@@ -4,395 +4,727 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scroll"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:text="@string/journal_label"
-            android:textColor="@color/black"
-            android:textSize="25sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/header"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/question1"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/question1_program"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/program_selected_button"
-                android:layout_width="65dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="5dp"
-                android:background="@color/black"
-                android:text="@string/select_button"
-                android:gravity="center"
-                android:textColor="@color/white" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:background="@drawable/menu_footer"
+            android:gravity="center_horizontal"
+            android:paddingVertical="10dp"
+            android:text="Дневник тестовой стимуляции"
+            android:textColor="#ffff"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:text="@string/question2"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:id="@+id/question1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp"
+            android:background="@drawable/journal_question_background"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@+id/header">
 
-            <SeekBar
-                android:id="@+id/pain_seek_bar"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:gravity="center"
-                android:indeterminate="false"
-                android:max="20"
-                android:progress="0"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <TextView
+                android:id="@+id/questionNumber1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="1."
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/pain_percents_bar"
-                android:layout_width="30dp"
+                android:id="@+id/questionText1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="@color/black"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="0%"
-                android:textColor="@color/white"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/question1"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/pain_seek_bar"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber1"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/programText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/question1_program"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/questionText1"
+                app:layout_constraintTop_toBottomOf="@+id/questionText1" />
+
+            <TextView
+                android:id="@+id/program_selected_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/border_radius"
+                android:paddingHorizontal="15dp"
+                android:text="0"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/programText1"
+                app:layout_constraintStart_toEndOf="@+id/programText1"
+                app:layout_constraintTop_toTopOf="@+id/programText1" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <EditText
-            android:id="@+id/pain_comments"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:imeOptions="actionDone"
-            android:hint="@string/comment_placeholder"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:text="@string/question3"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="57dp"
+            android:id="@+id/question2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center"
+            android:background="@drawable/journal_question_background"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@+id/question1">
 
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
+            <TextView
+                android:id="@+id/questionNumber2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginStart="12dp"
+                android:text="2."
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Сидя:"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/sitting_selected_button"
-                    android:layout_width="35dp"
-                    android:layout_height="22dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/questionTitle2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:text="@string/question2"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber2"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Стоя:"
-                    android:textSize="16sp" />
+            <SeekBar
+                android:id="@+id/pain_seek_bar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="20dp"
+                android:max="20"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle2" />
 
-                <TextView
-                    android:id="@+id/standing_selected_button"
-                    android:layout_width="35dp"
-                    android:layout_height="22dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/constraintLayout">
+                android:layout_marginStart="12dp"
+                android:text="0%"
+                android:textColor="#ffff"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@+id/pain_seek_bar"
+                app:layout_constraintTop_toBottomOf="@+id/pain_seek_bar" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="При ходьбе:"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/walking_selected_button"
-                    android:layout_width="35dp"
-                    android:layout_height="22dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout3"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:text="100%"
+                android:textColor="#ffff"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/pain_seek_bar"
+                app:layout_constraintTop_toBottomOf="@+id/pain_seek_bar" />
+
+            <EditText
+                android:id="@+id/pain_comments"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="@string/comment_placeholder"
+                android:imeOptions="actionDone"
+                android:textColor="#ffff"
+                android:textColorHint="#A8FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Во время сна:"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/sleeping_selected_button"
-                    android:layout_width="35dp"
-                    android:layout_height="22dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
-                android:layout_width="36dp"
-                android:layout_height="55dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                app:layout_constraintEnd_toEndOf="@+id/pain_seek_bar"
+                app:layout_constraintStart_toStartOf="@+id/pain_seek_bar"
+                app:layout_constraintTop_toBottomOf="@+id/pain_seek_bar" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <EditText
-            android:id="@+id/pain_comments_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:imeOptions="actionDone"
-            android:hint="@string/comment_placeholder"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:text="@string/question_3"/>
-
-        <CheckBox
-            android:id="@+id/assessmentConditionCheckBox1"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/question3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Смогли ли Вы дольше сидеть?" />
+            android:background="@drawable/journal_question_background"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@+id/question2">
 
-        <CheckBox
-            android:id="@+id/assessmentConditionCheckBox2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Смогли ли Вы дольше идти или стоять?" />
+            <TextView
+                android:id="@+id/questionNumber3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="3."
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <CheckBox
-            android:id="@+id/assessmentConditionCheckBox3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Было улучшение при рутинных видах деятельности (например при готовке еды, во время работы или уборки по дому)?  " />
+            <TextView
+                android:id="@+id/questionTitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/question3"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber3"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/assessmentConditionComment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:imeOptions="actionDone"
-            android:hint="@string/comment_placeholder"/>
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Сидя:"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/questionTitle3"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle3" />
+
+            <TextView
+                android:id="@+id/sitting_selected_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/border_radius"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:text="0"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="Стоя:"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/staying_selected_button"
+                app:layout_constraintEnd_toStartOf="@+id/staying_selected_button"
+                app:layout_constraintTop_toTopOf="@+id/staying_selected_button" />
+
+            <TextView
+                android:id="@+id/staying_selected_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_radius"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:text="0"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/sitting_selected_button"
+                app:layout_constraintStart_toStartOf="@+id/sitting_selected_button"
+                app:layout_constraintTop_toBottomOf="@+id/sitting_selected_button" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="24dp"
+                android:text="При ходьбе:"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/sitting_selected_button"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle3" />
+
+            <TextView
+                android:id="@+id/walking_selected_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/border_radius"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:text="0"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="Во время сна:"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/sleeping_selected_button"
+                app:layout_constraintTop_toTopOf="@+id/sleeping_selected_button" />
+
+            <TextView
+                android:id="@+id/sleeping_selected_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_radius"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:text="0"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/walking_selected_button"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/walking_selected_button"
+                app:layout_constraintTop_toBottomOf="@+id/walking_selected_button" />
+
+            <EditText
+                android:id="@+id/pain_comments2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="@string/comment_placeholder"
+                android:imeOptions="actionDone"
+                android:textColor="#ffff"
+                android:textColorHint="#A8FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/question4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_marginTop="20dp"
-            android:text="5. Оцените Ощущения от стимуляции."/>
+            android:paddingVertical="10dp"
+            android:background="@drawable/journal_question_background"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@id/question3" >
 
-        <RadioGroup
-            android:id="@+id/radio_group_1"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/questionNumber4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="4."
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/questionTitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/question4"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/assessmentConditionCheckBox1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:buttonTint="#ffff"
+                android:text="Смогли ли Вы дольше сидеть?"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle4" />
+
+            <CheckBox
+                android:id="@+id/assessmentConditionCheckBox2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="16sp"
+                android:textColor="#ffff"
+                android:buttonTint="#ffff"
+                android:text="Смогли ли Вы дольше идти или стоять?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/assessmentConditionCheckBox1" />
+
+            <CheckBox
+                android:id="@+id/assessmentConditionCheckBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:buttonTint="#ffff"
+                android:gravity="top"
+                android:text="Было улучшение при рутинных видах деятельности (например при готовке еды, во время работы или уборки по дому)?  "
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/assessmentConditionCheckBox2" />
+
+            <EditText
+                android:id="@+id/pain_comments4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="@string/comment_placeholder"
+                android:imeOptions="actionDone"
+                android:textColor="#ffff"
+                android:textColorHint="#A8FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/assessmentConditionCheckBox3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/question5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            >
-
-            <RadioButton
-                android:id="@+id/question5_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Приятные"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:id="@+id/question5_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Некомфортные"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:id="@+id/question5_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Болезненные"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:id="@+id/question5_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Комфортные"
-                android:textSize="14sp" />
-
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_marginTop="20dp"
-            android:text="@string/question_6"/>
+            android:paddingVertical="10dp"
+            android:background="@drawable/journal_question_background"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@id/question4">
 
-        <RadioGroup
-            android:id="@+id/radio_group_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/question6_1"
+            <TextView
+                android:id="@+id/questionNumber5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Превосходно"
-                android:textSize="14sp" />
+                android:layout_marginStart="12dp"
+                android:text="5."
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <RadioButton
-                android:id="@+id/question6_2"
+            <TextView
+                android:id="@+id/questionTitle5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/question5"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Хорошо"
-                android:textSize="14sp" />
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle5">
 
-            <RadioButton
-                android:id="@+id/question6_3"
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/question5_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#ffff"
+                    android:text="Приятные"
+                    android:textColor="#ffff"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/question5_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#ffff"
+                    android:text="Некомфортные"
+                    android:textColor="#ffff"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/question5_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#ffff"
+                    android:text="Болезненные"
+                    android:textColor="#ffff"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/question5_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#ffff"
+                    android:text="Комфортные"
+                    android:textColor="#ffff"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/pain_comments5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Удовлетворительно"
-                android:textSize="14sp" />
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="@string/comment_placeholder"
+                android:imeOptions="actionDone"
+                android:textColor="#ffff"
+                android:textColorHint="#A8FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radio_group_1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RadioButton
-                android:id="@+id/question6_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Неэффективно"
-                android:textSize="14sp" />
-
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/question6"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_marginTop="20dp"
-            android:text="@string/question_7"/>
+            android:paddingVertical="10dp"
+            android:background="@drawable/journal_question_background"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@id/question5">
 
-        <EditText
-            android:id="@+id/question7_comment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:imeOptions="actionDone"
-            android:hint="@string/comment_placeholder"/>
+            <TextView
+                android:id="@+id/questionNumber6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="6."
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/questionTitle6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/question6"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle6">
+
+                <RadioButton
+                    android:id="@+id/question6_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#ffff"
+                    android:textColor="#ffff"
+                    android:text="Превосходно"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/question6_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#ffff"
+                    android:textColor="#ffff"
+                    android:text="Хорошо"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/question6_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#ffff"
+                    android:textColor="#ffff"
+                    android:text="Удовлетворительно"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/question6_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="#ffff"
+                    android:textColor="#ffff"
+                    android:text="Неэффективно"
+                    android:textSize="14sp" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/pain_comments6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="@string/comment_placeholder"
+                android:imeOptions="actionDone"
+                android:textColor="#ffff"
+                android:textColorHint="#A8FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radio_group_2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/question7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/journal_question_background"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@id/question6">
+
+            <TextView
+                android:id="@+id/questionNumber7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="7."
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/questionTitle7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/question7"
+                android:textColor="#ffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber7"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/pain_comments7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="23dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="@string/comment_placeholder"
+                android:imeOptions="actionDone"
+                android:textColor="#ffff"
+                android:textColorHint="#A8FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionTitle7" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/buttonNext"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Далее" />
-    </LinearLayout>
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="80dp"
+            android:textSize="16sp"
+            android:background="@drawable/button_journal_style"
+            android:text="Далее"
+            app:layout_constraintEnd_toStartOf="@+id/margin_right"
+            app:layout_constraintStart_toStartOf="@+id/margin_left"
+            app:layout_constraintTop_toBottomOf="@+id/question7"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/menu_footer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNext" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

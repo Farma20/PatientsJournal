@@ -34,8 +34,8 @@ class MyJournalFragment:
 
     //Объявление переменных
     private lateinit var programSelectionButton: TextView
-    private lateinit var percentBarTextView: TextView
-    private lateinit var painSeekBar: SeekBar
+//    private lateinit var percentBarTextView: TextView
+//    private lateinit var painSeekBar: SeekBar
     private lateinit var painCommentEditText: EditText
     private lateinit var sitingPainSelectionButton: TextView
     private lateinit var stayingPainSelectionButton: TextView
@@ -82,21 +82,21 @@ class MyJournalFragment:
 
         //инициализация переменных
         programSelectionButton = view.findViewById(R.id.program_selected_button) as TextView
-        percentBarTextView = view.findViewById(R.id.pain_percents_bar) as TextView
-        painSeekBar = view.findViewById(R.id.pain_seek_bar) as SeekBar
+//        percentBarTextView = view.findViewById(R.id.pain_percents_bar) as TextView
+//        painSeekBar = view.findViewById(R.id.pain_seek_bar) as SeekBar
         painCommentEditText = view.findViewById(R.id.pain_comments) as EditText
         sitingPainSelectionButton = view.findViewById(R.id.sitting_selected_button) as TextView
-        stayingPainSelectionButton = view.findViewById(R.id.standing_selected_button) as TextView
+        stayingPainSelectionButton = view.findViewById(R.id.staying_selected_button) as TextView
         walkingPainSelectionButton = view.findViewById(R.id.walking_selected_button) as TextView
         sleepingPainSelectionButton = view.findViewById(R.id.sleeping_selected_button) as TextView
-        painComment2EditText = view.findViewById(R.id.pain_comments_2) as EditText
+        painComment2EditText = view.findViewById(R.id.pain_comments2) as EditText
         assessmentCondition1CheckBox = view.findViewById(R.id.assessmentConditionCheckBox1) as CheckBox
         assessmentCondition2CheckBox = view.findViewById(R.id.assessmentConditionCheckBox2) as CheckBox
         assessmentCondition3CheckBox = view.findViewById(R.id.assessmentConditionCheckBox3) as CheckBox
-        assessmentConditionEditText = view.findViewById(R.id.assessmentConditionComment) as EditText
+        assessmentConditionEditText = view.findViewById(R.id.pain_comments4) as EditText
         radio1Group = view.findViewById(R.id.radio_group_1) as RadioGroup
         radio2Group = view.findViewById(R.id.radio_group_2) as RadioGroup
-        comment7EditText = view.findViewById(R.id.question7_comment) as EditText
+        comment7EditText = view.findViewById(R.id.pain_comments7) as EditText
         nextButton = view.findViewById(R.id.buttonNext) as Button
 
         return view
@@ -120,18 +120,18 @@ class MyJournalFragment:
                 }
         }
 
-        percentBarTextView.text = "${myJournalViewModel.getPainLevel()}"
+//        percentBarTextView.text = "${myJournalViewModel.getPainLevel()}"
         //Слушатель на painSeekBar
-        painSeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
-            @SuppressLint("SetTextI18n")
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val percents = progress * 5
-                percentBarTextView.text = "$percents%"
-                myJournalViewModel.setPainLevel(percents)
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {    }
-        })
+//        painSeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+//            @SuppressLint("SetTextI18n")
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//                val percents = progress * 5
+//                percentBarTextView.text = "$percents%"
+//                myJournalViewModel.setPainLevel(percents)
+//            }
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {    }
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {    }
+//        })
 
         //Слушатели EditText
         painCommentEditText.addTextChangedListener(object: TextWatcher{

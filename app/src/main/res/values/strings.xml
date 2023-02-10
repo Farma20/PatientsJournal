@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">Patients Journal</string>
     <string name="journal_label">Дневник тестовой симуляции</string>
-    <string name="question1">1. Какая программа была сегодня самой эффективной?</string>
-    <string name="question2">2. Отметьте снижение боли в самой активной области.</string>
+    <string name="question1">Какая программа была сегодня самой эффективной?</string>
+    <string name="question2">Отметьте снижение боли в самой активной области:</string>
     <string name="question1_program">Программа №</string>
     <string name="select_button">Выберите</string>
-    <string name="question3">3. Отметьте уровни боли при определенных видах деятельности из списка. (по шкале от 0 до 10, где 10 – самая сильная боль).</string>
+    <string name="question3">Отметьте уровни боли при определенных видах деятельности из списка. (по шкале от 0 до 10, где 10 – самая сильная боль):</string>
     <string name="comment_placeholder">Ваш комментарий</string>
-    <string name="question_3">4. Оцените, было улучшение во время следующих ситуаций?</string>
-    <string name="question_6">6. Оцените общую эффективность программы.</string>
-    <string name="question_7">7. Определите изменения вашего физического и эмоционального состояния, которые заметны Вам и Вашему окружению.</string>
+    <string name="question4">Оцените, было улучшение во время следующих ситуаций?</string>
+    <string name="question5">Оцените ощущения от стимуляции:</string>
+    <string name="question6">Оцените общую эффективность программы:</string>
+    <string name="question7">Определите изменения вашего физического и эмоционального состояния, которые заметны Вам и Вашему окружению:</string>
 </resources>
